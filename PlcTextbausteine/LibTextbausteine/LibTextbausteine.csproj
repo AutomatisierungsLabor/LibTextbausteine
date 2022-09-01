@@ -20,8 +20,8 @@
     <RepositoryUrl></RepositoryUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/KurtLinder</PackageProjectUrl>
-    <PackageTags>Textbausteine</PackageTags>
-    <PackageId>LbsFeldkirch.Textbausteine</PackageId>
+    <PackageTags>LibTextbausteine</PackageTags>
+    <PackageId>LbsFeldkirch.LibTextbausteine</PackageId>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <Version>1.0.0.0</Version>
