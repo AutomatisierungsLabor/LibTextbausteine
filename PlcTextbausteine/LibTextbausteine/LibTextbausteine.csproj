@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>10</LangVersion>    
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+ 	<Authors>Kurt Linder</Authors>
+	<Company>LBS Feldkirch</Company>
+	<Description>Bibliothek zum lesen der Textbausteine der Datenbank</Description>
+
+    <RepositoryUrl>https://github.com/KurtLinder</RepositoryUrl>
+	<Copyright>Copyright © 2022 Kurt Linder</Copyright>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+	<PackageReleaseNotes>Minor changes</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageProjectUrl>https://github.com/KurtLinder</PackageProjectUrl>
+    <PackageTags>interpreter script scripting .net compiler runtime bytecode automation</PackageTags>
+    <PackageId>LbsFeldkirch.Silk</PackageId>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>2.0.0.1</Version>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>
