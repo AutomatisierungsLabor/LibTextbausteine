@@ -1,29 +1,16 @@
 ﻿using Newtonsoft.Json;
 using System.IO.Compression;
+using System.Text;
 
 namespace LibTextbausteine;
 
-public class RootAlleTextbausteine
-{
-    public EinLehrstoffTextbaustein[] AlleTextbausteine { get; set; }
-}
-public class EinLehrstoffTextbaustein
-{
-    public int Id { get; set; }
-    public string Bezeichnung { get; set; }
-    public string UeberschriftH1 { get; set; }
-    public string UnterUeberschriftH2 { get; set; }
-    public string Inhalt { get; set; }
-}
+
+
 public class Textbausteine
 {
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-
-
-
-    private const string TempJsonFile = "TempTextbausteine.json";
     private readonly EinLehrstoffTextbaustein[] _alletextbausteines;
     private readonly bool _textBausteinOk;
 
@@ -33,14 +20,19 @@ public class Textbausteine
     {
         Log.Debug("zip Datei: " + jsonZip);
 
+        var tempFile = System.IO.Path.GetRandomFileName();
+
         try
         {
             var zip = ZipFile.OpenRead(jsonZip);
             var zipEntry = zip.Entries[0];
             if (zipEntry.FullName != "json") return;
-            if (File.Exists(TempJsonFile)) File.Delete(TempJsonFile);
 
-            zipEntry.ExtractToFile(TempJsonFile);
+
+
+            if (File.Exists(tempFile)) File.Delete(tempFile);
+
+            zipEntry.ExtractToFile(tempFile);
         }
         catch (Exception e)
         {
@@ -53,11 +45,11 @@ public class Textbausteine
 
         try
         {
-            temp = JsonConvert.DeserializeObject<RootAlleTextbausteine>(File.ReadAllText(TempJsonFile));
+            temp = JsonConvert.DeserializeObject<RootAlleTextbausteine>(File.ReadAllText(tempFile));
         }
         catch (Exception e)
         {
-            Log.Debug("Probleme in der json Datei" + TempJsonFile);
+            Log.Debug("Probleme in der json Datei" + tempFile);
             Console.WriteLine(e);
         }
 
@@ -67,28 +59,18 @@ public class Textbausteine
         _textBausteinOk = true;
     }
 
-    public EinLehrstoffTextbaustein GetTextbaustein(int id)
-    {
-        /*
-            if (id == 0)
-            {
-                MessageBox.Show("Textbaustein mit ID=" + id);
-                return null;
-            }
-            if (id > _alletextbausteines.Length)
-            {
-                MessageBox.Show("Textbaustein mit ID=" + id + " > Länge der Textliste: " + _alletextbausteines.Length);
-                return null;
-            }
 
-            if (id == _alletextbausteines[id - 1].Id) return _alletextbausteines[id - 1];
-
-            MessageBox.Show("Textbaustein mit falscher ID=" + id + " > Textliste[].id: " + _alletextbausteines[id - 1].Id);
-     */
-        return null;
-
-    }
 
     public int GetAnzahlTextbausteine() => _alletextbausteines.Length;
     public bool BausteinOk() => _textBausteinOk;
+    public bool IsIdVorhanden(int id)
+    {
+        if (id == 0) return false;
+        return id <= _alletextbausteines.Length;
+    }
+    public string GetBezeichnung(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1].Bezeichnung : "-";
+    public string GetUeberschriftH1(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1].UeberschriftH1 : "-";
+    public string GetUnterUeberschriftH2(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1].UnterUeberschriftH2 : "-";
+    public string GetInhalt(int id) => IsIdVorhanden(id) ? Encoding.UTF8.GetString(Convert.FromBase64String(_alletextbausteines[id - 1].Inhalt)) : "-";
+    public EinLehrstoffTextbaustein GetTextbaustein(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1] : new EinLehrstoffTextbaustein();
 }

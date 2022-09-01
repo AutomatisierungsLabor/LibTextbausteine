@@ -9,7 +9,7 @@
 	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
  	<Authors>Kurt Linder</Authors>
 	<Company>LBS Feldkirch</Company>
-	<Description>Bibliothek zum lesen der Textbausteine der Datenbank</Description>
+	<Description>Bibliothek zum lesen der Textbausteine</Description>
 
     <RepositoryUrl>https://github.com/KurtLinder</RepositoryUrl>
 	<Copyright>Copyright © 2022 Kurt Linder</Copyright>
@@ -20,11 +20,11 @@
     <RepositoryUrl></RepositoryUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/KurtLinder</PackageProjectUrl>
-    <PackageTags>interpreter script scripting .net compiler runtime bytecode automation</PackageTags>
-    <PackageId>LbsFeldkirch.Silk</PackageId>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
-    <Version>2.0.0.1</Version>
+    <PackageTags>Textbausteine</PackageTags>
+    <PackageId>LbsFeldkirch.Textbausteine</PackageId>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0.0</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -33,5 +33,19 @@
     <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
+
+<ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath="">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+	<None Include="README.md" Pack="true" PackagePath=""/>
+</ItemGroup>
+  
+<ItemGroup>
+  <None Update="log4net.config">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+
 
 </Project>
