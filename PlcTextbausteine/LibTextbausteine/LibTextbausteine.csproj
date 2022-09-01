@@ -11,7 +11,7 @@
 	<Company>LBS Feldkirch</Company>
 	<Description>Bibliothek zum lesen der Textbausteine</Description>
 
-    <RepositoryUrl>https://github.com/KurtLinder</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcTextbausteine</RepositoryUrl>
 	<Copyright>Copyright © 2022 Kurt Linder</Copyright>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -19,12 +19,12 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl></RepositoryUrl>
     <PackageIconUrl></PackageIconUrl>
-    <PackageProjectUrl>https://github.com/KurtLinder</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcTextbausteine</PackageProjectUrl>
     <PackageTags>LibTextbausteine</PackageTags>
     <PackageId>LbsFeldkirch.LibTextbausteine</PackageId>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+    <Version>1.0.0.1</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
