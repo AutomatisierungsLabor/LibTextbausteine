@@ -6,21 +6,19 @@ namespace LibTextbausteine;
 
 
 
-public class Textbausteine
+public partial class Textbausteine
 {
-
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     private readonly EinLehrstoffTextbaustein[] _alletextbausteines;
     private readonly bool _textBausteinOk;
-
-
+    
 
     public Textbausteine(string jsonZip)
     {
         Log.Debug("zip Datei: " + jsonZip);
 
-        var tempFile = System.IO.Path.GetRandomFileName();
+        var tempFile = Path.GetRandomFileName();
 
         try
         {
@@ -56,11 +54,16 @@ public class Textbausteine
         if (temp?.AlleTextbausteine == null) return;
 
         _alletextbausteines = temp.AlleTextbausteine;
+
         _textBausteinOk = true;
+        var id = 0;
+
+        foreach (var textbaustein in _alletextbausteines)
+        {
+            if (id + 1 != textbaustein.Id) _textBausteinOk = false;
+            id++;
+        }
     }
-
-
-
     public int GetAnzahlTextbausteine() => _alletextbausteines.Length;
     public bool BausteinOk() => _textBausteinOk;
     public bool IsIdVorhanden(int id)
@@ -72,5 +75,5 @@ public class Textbausteine
     public string GetUeberschriftH1(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1].UeberschriftH1 : "-";
     public string GetUnterUeberschriftH2(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1].UnterUeberschriftH2 : "-";
     public string GetInhalt(int id) => IsIdVorhanden(id) ? Encoding.UTF8.GetString(Convert.FromBase64String(_alletextbausteines[id - 1].Inhalt)) : "-";
-    public EinLehrstoffTextbaustein GetTextbaustein(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1] : new EinLehrstoffTextbaustein();
+    private string GetTest(int id) => IsIdVorhanden(id) ? _alletextbausteines[id - 1].Test : "-";
 }
