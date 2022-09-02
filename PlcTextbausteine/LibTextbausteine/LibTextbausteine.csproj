@@ -38,7 +38,11 @@
     <None Include="LICENSE" Pack="true" PackagePath="">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-	<None Include="README.md" Pack="true" PackagePath=""/>
+	<None Include="README.md" Pack="true" PackagePath="" />
+</ItemGroup>
+
+<ItemGroup>
+  <ProjectReference Include="..\LibJson\LibJson.csproj" />
 </ItemGroup>
   
 <ItemGroup>

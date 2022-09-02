@@ -4,11 +4,6 @@ namespace LibTextbausteine.Test;
 
 public class TestZipDateiOffnen
 {
-
-
-
-
-
     [Theory]
     [InlineData(false, "zip1//json.zip")]
     [InlineData(true, "zip10//json.zip")]

@@ -1,0 +1,40 @@
+﻿{
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "20",
+      "PrefixH1": "1. ",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Hardware",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "23",
+      "PrefixH1": "2. ",
+      "PrefixH2": "2.3 ",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Variante 3",
+      "WasAnzeigen": "H1H2Inhalt"
+    },
+    {
+      "BausteinId": "8",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ]
+}

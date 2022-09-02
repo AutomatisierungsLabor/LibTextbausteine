@@ -22,10 +22,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibJson\LibJson.csproj" />
     <ProjectReference Include="..\LibTextbausteine\LibTextbausteine.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="json1\inhalt.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="json2\inhalt.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="zip0\json.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

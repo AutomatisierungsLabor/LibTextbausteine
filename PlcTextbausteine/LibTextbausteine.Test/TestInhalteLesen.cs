@@ -48,6 +48,6 @@ public class TestInhalteLesen
     public void TestsInhaltLesen(string bez, int id, string pfad)
     {
         var textBaustein = new Textbausteine(pfad);
-        Assert.Equal(bez, textBaustein.GetInhalt(id).Substring(0,28));
+        Assert.Equal(bez, textBaustein.GetInhalt(id)[..28]);
     }
 }
