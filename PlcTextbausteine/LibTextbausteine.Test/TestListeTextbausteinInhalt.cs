@@ -1,8 +1,9 @@
-﻿using Xunit;
+﻿using LibListeTextbausteine;
+using Xunit;
 
 namespace LibTextbausteine.Test;
 
-public class TestJsonInhalt
+public class TestListeTextbausteinInhalt
 {
     [Theory]
     [InlineData(5, "json1//inhalt.json", 0)]
@@ -10,7 +11,7 @@ public class TestJsonInhalt
 
     public void TestsInhalt(int textbausteinId, string pfad, int id)
     {
-        var json = new LibJson.ConfigJson(pfad);
+        var json = new ListeTextbausteine(pfad);
         var a = json.GetTextbaustein(id);
         Assert.Equal(textbausteinId, a.BausteinId);
     }
@@ -21,7 +22,7 @@ public class TestJsonInhalt
 
     public void TestsKommentar(string kommentar, string pfad, int id)
     {
-        var json = new LibJson.ConfigJson(pfad);
+        var json = new ListeTextbausteine(pfad);
         Assert.Equal(kommentar, json.GetKommentar(id));
     }
     
@@ -30,7 +31,7 @@ public class TestJsonInhalt
     [InlineData("-", "json2//inhalt.json", 1)]
     public void TestsTests(string tests, string pfad, int id)
     {
-        var json = new LibJson.ConfigJson(pfad);
+        var json = new ListeTextbausteine(pfad);
         Assert.Equal(tests, json.GetTest(id));
     }
     
@@ -39,7 +40,7 @@ public class TestJsonInhalt
     [InlineData(0, "json2//inhalt.json", 1)]
     public void TestsVorbereitungId(int vorbereitungId, string pfad, int id)
     {
-        var json = new LibJson.ConfigJson(pfad);
+        var json = new ListeTextbausteine(pfad);
         Assert.Equal(vorbereitungId, json.GetVorbereitungId(id));
     }
 }

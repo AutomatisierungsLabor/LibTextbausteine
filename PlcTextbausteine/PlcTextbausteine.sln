@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibJson", "LibJson\LibJson.csproj", "{BE7769A3-C850-42D0-B5ED-0B30074C2BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibListeTextbausteine", "LibJson\LibListeTextbausteine.csproj", "{BE7769A3-C850-42D0-B5ED-0B30074C2BBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{57231FB2-464A-47A0-8AEB-275860C8ECD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BE7769A3-C850-42D0-B5ED-0B30074C2BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7769A3-C850-42D0-B5ED-0B30074C2BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7769A3-C850-42D0-B5ED-0B30074C2BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57231FB2-464A-47A0-8AEB-275860C8ECD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57231FB2-464A-47A0-8AEB-275860C8ECD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57231FB2-464A-47A0-8AEB-275860C8ECD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57231FB2-464A-47A0-8AEB-275860C8ECD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

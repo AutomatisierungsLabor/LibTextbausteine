@@ -2,7 +2,7 @@ using Xunit;
 
 namespace LibTextbausteine.Test;
 
-public class TestZipDateiOffnen
+public class TestTextbausteineZipDateiOffnen
 {
     [Theory]
     [InlineData(false, "zip1//json.zip")]

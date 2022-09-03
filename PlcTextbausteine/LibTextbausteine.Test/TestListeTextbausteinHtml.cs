@@ -1,8 +1,9 @@
-﻿using Xunit;
+﻿using LibListeTextbausteine;
+using Xunit;
 
 namespace LibTextbausteine.Test;
 
-public class TestJsonHtml
+public class TestListeTextbausteinHtml
 {
     [Theory]
     [InlineData(1249, "zip11/json.zip", "json1//inhalt.json", 0)]
@@ -12,11 +13,11 @@ public class TestJsonHtml
 
     public void TestsInhalt(int laenge, string jsonZip, string pfadJson, int id)
     {
-        var jsonTextbausteine = new Textbausteine(jsonZip);
-        var jsonInhalt = new LibJson.ConfigJson(pfadJson);
-        var a = jsonInhalt.GetTextbaustein(id);
+        var alleTextbausteine = new Textbausteine(jsonZip);
+        var listeTextbausteine = new ListeTextbausteine(pfadJson);
+        var a = listeTextbausteine.GetTextbaustein(id);
 
-        var html = jsonTextbausteine.GetEinHtmlTextbaustein(a);
+        var html = alleTextbausteine.GetEinHtmlTextbaustein(a);
 
         Assert.Equal(laenge, html.Length);
     }
@@ -29,11 +30,11 @@ public class TestJsonHtml
     public void TestsKomplettenInhalt(int laenge, string jsonZip, string pfadJson)
     {
 
-        var jsonTextbausteine = new Textbausteine(jsonZip);
-        var jsonInhalt = new LibJson.ConfigJson(pfadJson);
-        var a = jsonInhalt.GetAlleTextbaustein();
+        var alleTextbausteine = new Textbausteine(jsonZip);
+        var listeTextbausteine = new ListeTextbausteine(pfadJson);
+        var a = listeTextbausteine.GetAlleTextbaustein();
 
-        var html = jsonTextbausteine.GetAlleHtmlTextbaustein(a);
+        var html = alleTextbausteine.GetAlleHtmlTextbaustein(a);
 
         Assert.Equal(laenge, html.Length);
     }

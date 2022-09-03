@@ -1,8 +1,9 @@
-﻿using Xunit;
+﻿using LibListeTextbausteine;
+using Xunit;
 
 namespace LibTextbausteine.Test;
 
-public class TestZJsonDatei
+public class TestListeTextbausteineDatei
 {
     [Theory]
     [InlineData(true, "json1//inhalt.json")]
@@ -10,7 +11,7 @@ public class TestZJsonDatei
 
     public void TestsKonstruktorOk(bool ok, string pfad)
     {
-        var json = new LibJson.ConfigJson(pfad);
+        var json = new ListeTextbausteine(pfad);
         Assert.Equal(ok, json.InhaltOk());
     }
 
@@ -21,7 +22,7 @@ public class TestZJsonDatei
 
     public void TestsAnzahlEintraege(int anzahl, string pfad)
     {
-        var json = new LibJson.ConfigJson(pfad);
+        var json = new ListeTextbausteine(pfad);
         Assert.Equal(anzahl, json.AnzahlEintraege());
     }
 }

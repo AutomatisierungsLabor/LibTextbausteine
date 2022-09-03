@@ -2,7 +2,7 @@
 
 namespace LibTextbausteine.Test;
 
-public class TestInhalteLesen
+public class TestTextbausteineInhalteLesen
 {
     [Theory]
     [InlineData("-", 0, "zip10//json.zip")]
@@ -15,8 +15,6 @@ public class TestInhalteLesen
         Assert.Equal(bez, textBaustein.GetBezeichnung(id));
     }
 
-
-
     [Theory]
     [InlineData("-", 0, "zip10//json.zip")]
     [InlineData("S7-1200 - Linearachse", 1, "zip10//json.zip")]
@@ -27,8 +25,6 @@ public class TestInhalteLesen
         var textBaustein = new Textbausteine(pfad);
         Assert.Equal(bez, textBaustein.GetUeberschriftH1(id));
     }
-
-
 
     [Theory]
     [InlineData("-", 0, "zip10//json.zip")]

@@ -2,13 +2,8 @@
 
 namespace LibTextbausteine.Test;
 
-public class TestIdLesen
+public class TestTextbausteineIdLesen
 {
-
-
-
-
-
     [Theory]
     [InlineData(false, 0, "zip10//json.zip")]
     [InlineData(true, 1, "zip10//json.zip")]
@@ -20,7 +15,5 @@ public class TestIdLesen
         var textBaustein = new Textbausteine(pfad);
 
         Assert.Equal(ok, textBaustein.IsIdVorhanden(id));
-
     }
-
 }

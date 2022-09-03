@@ -1,4 +1,9 @@
-﻿namespace LibTextbausteine;
+﻿namespace Contracts;
+
+public class RootAlleTextbausteine
+{
+    public EinLehrstoffTextbaustein[] AlleTextbausteine { get; set; }
+}
 
 public class EinLehrstoffTextbaustein
 {

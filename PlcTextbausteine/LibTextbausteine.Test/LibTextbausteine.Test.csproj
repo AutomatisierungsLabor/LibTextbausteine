@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibJson\LibJson.csproj" />
+    <ProjectReference Include="..\LibJson\LibListeTextbausteine.csproj" />
     <ProjectReference Include="..\LibTextbausteine\LibTextbausteine.csproj" />
   </ItemGroup>
 
