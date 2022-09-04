@@ -6,7 +6,7 @@ on:
 
 env:
    TEST_PATH: PlcTextbausteine/LibTextbausteine.Test/LibTextbausteine.Test.csproj
-   PROJECT_PATH: PlcTextbausteine/LibTextbausteine/LibTextbausteine.csproj
+   PROJECT_PATH: PlcTextbausteine/PlcTextbausteine.sln
     
 jobs:
   build:

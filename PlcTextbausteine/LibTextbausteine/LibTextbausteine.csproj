@@ -4,27 +4,27 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <LangVersion>10</LangVersion>    
+    <LangVersion>10</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
- 	<Authors>Kurt Linder</Authors>
-	<Company>LBS Feldkirch</Company>
-	<Description>Bibliothek zum lesen der Textbausteine</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Kurt Linder</Authors>
+    <Company>LBS Feldkirch</Company>
+    <Description>Bibliothek zum lesen der Textbausteine</Description>
 
     <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcTextbausteine</RepositoryUrl>
-	<Copyright>Copyright © 2022 Kurt Linder</Copyright>
-	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>Copyright © 2022 Kurt Linder</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
-	<PackageReleaseNotes>Minor changes</PackageReleaseNotes>
+    <PackageReleaseNotes>Minor changes</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl></RepositoryUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcTextbausteine</PackageProjectUrl>
     <PackageTags>LibTextbausteine</PackageTags>
     <PackageId>LbsFeldkirch.LibTextbausteine</PackageId>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
-    <Version>1.0.0.1</Version>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
+    <FileVersion>1.0.0.3</FileVersion>
+    <Version>1.0.0.3</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -34,22 +34,16 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
-<ItemGroup>
-    <None Include="LICENSE" Pack="true" PackagePath="">
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-	<None Include="README.md" Pack="true" PackagePath="" />
-</ItemGroup>
-
-<ItemGroup>
-  <ProjectReference Include="..\LibJson\LibListeTextbausteine.csproj" />
-</ItemGroup>
-  
-<ItemGroup>
-  <None Update="log4net.config">
-    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-  </None>
-</ItemGroup>
+  </ItemGroup>
 
 
 </Project>

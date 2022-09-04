@@ -1,5 +1,4 @@
-﻿using LibListeTextbausteine;
-using Xunit;
+﻿using Xunit;
 
 namespace LibTextbausteine.Test;
 

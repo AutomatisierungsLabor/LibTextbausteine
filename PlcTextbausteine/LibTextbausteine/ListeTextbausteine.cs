@@ -1,7 +1,7 @@
 ﻿using Contracts;
 using Newtonsoft.Json;
 
-namespace LibListeTextbausteine;
+namespace LibTextbausteine;
 
 
 public class ListeTextbausteine
