@@ -1,4 +1,4 @@
-﻿namespace Contracts;
+﻿namespace LibTextbausteine;
 
 public enum TextbausteinAnzeigen
 {

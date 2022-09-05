@@ -4,33 +4,33 @@ namespace LibTextbausteine;
 
 public partial class Textbausteine
 {
-    public string GetEinHtmlTextbaustein(Contracts.ListeTextbausteinEintrag einTextbausteineEintrag)
+    public string GetEinHtmlTextbaustein(ListeTextbausteinEintrag einTextbausteineEintrag)
     {
         var html = new StringBuilder();
 
         switch (einTextbausteineEintrag.WasAnzeigen)
         {
-            case Contracts.TextbausteinAnzeigen.NurInhalt:
+            case TextbausteinAnzeigen.NurInhalt:
                 html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
-            case Contracts.TextbausteinAnzeigen.H1Inhalt:
+            case TextbausteinAnzeigen.H1Inhalt:
                 html.Append("<H1>" + einTextbausteineEintrag.PrefixH1 + GetUeberschriftH1(einTextbausteineEintrag.BausteinId) + "</H1>");
                 html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
-            case Contracts.TextbausteinAnzeigen.H1H2Inhalt:
+            case TextbausteinAnzeigen.H1H2Inhalt:
                 html.Append("<H1>" + einTextbausteineEintrag.PrefixH1 + GetUeberschriftH1(einTextbausteineEintrag.BausteinId) + "</H1>");
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetUnterUeberschriftH2(einTextbausteineEintrag.BausteinId) + "</H2>");
                 html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
-            case Contracts.TextbausteinAnzeigen.H2Inhalt:
+            case TextbausteinAnzeigen.H2Inhalt:
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetUnterUeberschriftH2(einTextbausteineEintrag.BausteinId) + "</H2>");
                 html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
-            case Contracts.TextbausteinAnzeigen.H1H2TestInhalt:
+            case TextbausteinAnzeigen.H1H2TestInhalt:
                 html.Append("<H1>" + einTextbausteineEintrag.PrefixH1 + GetUeberschriftH1(einTextbausteineEintrag.BausteinId) + "</H1>");
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetUnterUeberschriftH2(einTextbausteineEintrag.BausteinId) + "</H2>");
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetTest(einTextbausteineEintrag.BausteinId) + "</H2>");
@@ -42,7 +42,7 @@ public partial class Textbausteine
 
         return html.ToString();
     }
-    public string GetAlleHtmlTextbaustein(Contracts.ListeTextbausteinEintrag[] alletextbausteinEintraege)
+    public string GetAlleHtmlTextbaustein(ListeTextbausteinEintrag[] alletextbausteinEintraege)
     {
         var html = new StringBuilder();
 

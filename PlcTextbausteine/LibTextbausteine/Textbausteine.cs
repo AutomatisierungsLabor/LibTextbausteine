@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO.Compression;
 using System.Text;
-using Contracts;
 
 namespace LibTextbausteine;
 

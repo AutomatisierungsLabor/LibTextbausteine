@@ -1,5 +1,4 @@
-﻿using Contracts;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace LibTextbausteine;
 
