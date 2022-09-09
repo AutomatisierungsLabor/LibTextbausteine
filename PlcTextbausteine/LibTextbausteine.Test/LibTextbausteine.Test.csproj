@@ -41,6 +41,9 @@
     <None Update="zip11\json.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="zip13\json.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="zip1\json.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
