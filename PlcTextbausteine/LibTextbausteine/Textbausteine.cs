@@ -24,8 +24,7 @@ public partial class Textbausteine
             var zip = ZipFile.OpenRead(jsonZip);
             var zipEntry = zip.Entries[0];
             if (zipEntry.FullName != "json") return;
-
-
+            
 
             if (File.Exists(tempFile)) File.Delete(tempFile);
 
@@ -35,7 +34,6 @@ public partial class Textbausteine
         {
             Log.Debug(e.ToString());
             Console.WriteLine(e);
-            throw;
         }
 
         var temp = new RootAlleTextbausteine();
@@ -49,6 +47,8 @@ public partial class Textbausteine
             Log.Debug("Probleme in der json Datei" + tempFile);
             Console.WriteLine(e);
         }
+
+        if (File.Exists(tempFile)) File.Delete(tempFile);
 
         if (temp?.AlleTextbausteine == null) return;
 
