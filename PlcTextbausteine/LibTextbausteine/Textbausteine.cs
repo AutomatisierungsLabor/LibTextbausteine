@@ -4,31 +4,55 @@ using System.Text;
 
 namespace LibTextbausteine;
 
+public enum StatusZipDatei
+{
+    Unbekannt = 0,
+    FalscheAnzahlDateien,
+    FalscherDateiname,
+    JsonDateiOk,
+    JsonDateiLeer,
+    JsonEintraegeFalsch
+}
 
 public partial class Textbausteine
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     private readonly EinLehrstoffTextbaustein[] _alletextbausteines;
-    private readonly bool _textBausteinOk;
-    
+    private readonly StatusZipDatei _statusZipDatei;
 
     public Textbausteine(string jsonZip)
     {
         Log.Debug("zip Datei: " + jsonZip);
 
-        var tempFile = Path.GetRandomFileName();
+        var memoryStream = new MemoryStream();
 
+        _statusZipDatei = StatusZipDatei.Unbekannt;
         try
         {
-            var zip = ZipFile.OpenRead(jsonZip);
-            var zipEntry = zip.Entries[0];
-            if (zipEntry.FullName != "json") return;
-            
+            var zipArchive = ZipFile.OpenRead(jsonZip);
 
-            if (File.Exists(tempFile)) File.Delete(tempFile);
+            ZipFile.OpenRead(jsonZip);
 
-            zipEntry.ExtractToFile(tempFile);
+
+            if (zipArchive.Entries.Count != 1)
+            {
+                _statusZipDatei = StatusZipDatei.FalscheAnzahlDateien;
+                Log.Debug("Zip Datei sollte 1 Eintrag haben: " + zipArchive.Entries);
+                return;
+            }
+
+            var zipEntry = zipArchive.Entries[0];
+            if (zipEntry.FullName != "json")
+            {
+                _statusZipDatei = StatusZipDatei.FalscherDateiname;
+                Log.Debug("Zip Datei sollte nur die Datei json enthalten: " + zipEntry.FullName);
+                return;
+            }
+
+            var unzippedMemoryStream = zipEntry.Open();
+            unzippedMemoryStream.CopyTo(memoryStream);
+
         }
         catch (Exception e)
         {
@@ -36,35 +60,41 @@ public partial class Textbausteine
             Console.WriteLine(e);
         }
 
+        memoryStream.Seek(0, SeekOrigin.Begin);
+        var streamReader = new StreamReader(memoryStream);
+        var jsonString = streamReader.ReadToEnd();
         var temp = new RootAlleTextbausteine();
 
         try
         {
-            temp = JsonConvert.DeserializeObject<RootAlleTextbausteine>(File.ReadAllText(tempFile));
+            temp = JsonConvert.DeserializeObject<RootAlleTextbausteine>(jsonString);
+            _statusZipDatei = StatusZipDatei.JsonDateiOk;
         }
         catch (Exception e)
         {
-            Log.Debug("Probleme in der json Datei" + tempFile);
+            Log.Debug("Probleme in der json Datei" + jsonString);
             Console.WriteLine(e);
         }
 
-        if (File.Exists(tempFile)) File.Delete(tempFile);
-
-        if (temp?.AlleTextbausteine == null) return;
+        if (temp?.AlleTextbausteine == null)
+        {
+            _statusZipDatei = StatusZipDatei.JsonDateiLeer;
+            return;
+        }
 
         _alletextbausteines = temp.AlleTextbausteine;
 
-        _textBausteinOk = true;
         var id = 0;
 
         foreach (var textbaustein in _alletextbausteines)
         {
-            if (id + 1 != textbaustein.Id) _textBausteinOk = false;
+            if (id + 1 != textbaustein.Id) _statusZipDatei = StatusZipDatei.JsonEintraegeFalsch;
             id++;
         }
     }
+
+    public StatusZipDatei GetStatusZipDatei() => _statusZipDatei;
     public int GetAnzahlTextbausteine() => _alletextbausteines.Length;
-    public bool BausteinOk() => _textBausteinOk;
     public bool IsIdVorhanden(int id)
     {
         if (id == 0) return false;

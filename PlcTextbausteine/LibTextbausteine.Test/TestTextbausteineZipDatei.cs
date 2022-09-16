@@ -5,14 +5,26 @@ namespace LibTextbausteine.Test;
 public class TestTextbausteineZipDateiOffnen
 {
     [Theory]
-    [InlineData(false, "zip1//json.zip")]
-    [InlineData(true, "zip10//json.zip")]
-    [InlineData(true, "zip11//json.zip")]
-    
-    public void TestsKonstruktorOk(bool ok, string pfad)
+    [InlineData(StatusZipDatei.JsonDateiOk, "zip10//json.zip")]
+    [InlineData(StatusZipDatei.FalscherDateiname, "zip20//json.zip")]
+    [InlineData(StatusZipDatei.FalscheAnzahlDateien, "zip21//json.zip")]
+
+    public void TestsDateiStatus(StatusZipDatei status, string pfad)
     {
         var textBaustein = new Textbausteine(pfad);
-        Assert.Equal(ok, textBaustein.BausteinOk());
+        Assert.Equal(status, textBaustein.GetStatusZipDatei());
+    }
+
+
+    [Theory]
+    [InlineData(StatusZipDatei.JsonDateiLeer, "zip1//json.zip")]
+    [InlineData(StatusZipDatei.JsonDateiOk, "zip10//json.zip")]
+    [InlineData(StatusZipDatei.JsonDateiOk, "zip11//json.zip")]
+    
+    public void TestsKonstruktorStatus(StatusZipDatei status, string pfad)
+    {
+        var textBaustein = new Textbausteine(pfad);
+        Assert.Equal(status, textBaustein.GetStatusZipDatei());
     }
 
 

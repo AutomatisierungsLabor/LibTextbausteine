@@ -5,7 +5,7 @@ namespace LibTextbausteine.Test;
 public class TestTextbausteineImage
 {
     [Theory]
-    [InlineData(4517, "zip13/json.zip", "json2//inhalt.json", 2)]
+    [InlineData(690, "zip13/json.zip", "json2//inhalt.json", 2)]
 
     public void TestsInhalt(int laenge, string jsonZip, string pfadJson, int id)
     {
