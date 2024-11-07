@@ -1,4 +1,6 @@
-﻿namespace LibTextbausteine;
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+
+namespace LibTextbausteine;
 
 public enum TextbausteinAnzeigen
 {

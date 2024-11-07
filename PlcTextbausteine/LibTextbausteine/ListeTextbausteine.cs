@@ -4,12 +4,14 @@ namespace LibTextbausteine;
 
 public class ListeTextbausteine
 {
-    public RootobjectListeTextbausteine? Rootobject { get; set; }
-    public bool JsonDateiOk { get; set; }
+    private RootobjectListeTextbausteine? Rootobject { get; }
+    private bool JsonDateiOk { get; }
+
     public ListeTextbausteine(string? pfad)
     {
         Rootobject = new RootobjectListeTextbausteine();
-
+        
+        if (pfad is null) { return; }
         if (Rootobject is null) { return; }
 
         if (File.Exists(pfad))
@@ -29,9 +31,18 @@ public class ListeTextbausteine
 
     public bool InhaltOk() => JsonDateiOk;
     public int AnzahlEintraege() => Rootobject!.ListeTextbausteineEintrag!.Length;
-    public ListeTextbausteinEintrag GetTextbaustein(int id) => id <= AnzahlEintraege() ? Rootobject?.ListeTextbausteineEintrag?[id]! : new ListeTextbausteinEintrag();
-    public int GetVorbereitungId(int id) => id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].VorbereitungId : 0;
+
+    public ListeTextbausteinEintrag GetTextbaustein(int id) => id <= AnzahlEintraege()
+        ? Rootobject?.ListeTextbausteineEintrag?[id]!
+        : new ListeTextbausteinEintrag();
+
+    public int GetVorbereitungId(int id) =>
+        id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].VorbereitungId : 0;
+
     public string GetTest(int id) => id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].Test! : "-";
-    public string GetKommentar(int id) => id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].Kommentar! : "-";
+
+    public string GetKommentar(int id) =>
+        id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].Kommentar! : "-";
+
     public ListeTextbausteinEintrag[] GetAlleTextbaustein() => Rootobject!.ListeTextbausteineEintrag!;
 }

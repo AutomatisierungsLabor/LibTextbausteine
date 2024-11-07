@@ -1,4 +1,7 @@
-﻿namespace LibTextbausteine;
+﻿// ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
+namespace LibTextbausteine;
 
 public class RootAlleTextbausteine
 {

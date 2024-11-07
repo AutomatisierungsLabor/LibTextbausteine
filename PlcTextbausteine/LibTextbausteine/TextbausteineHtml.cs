@@ -11,43 +11,37 @@ public partial class Textbausteine
         switch (einTextbausteineEintrag.WasAnzeigen)
         {
             case TextbausteinAnzeigen.NurInhalt:
-                html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
             case TextbausteinAnzeigen.H1Inhalt:
                 html.Append("<H1>" + einTextbausteineEintrag.PrefixH1 + GetUeberschriftH1(einTextbausteineEintrag.BausteinId) + "</H1>");
-                html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
             case TextbausteinAnzeigen.H1H2Inhalt:
                 html.Append("<H1>" + einTextbausteineEintrag.PrefixH1 + GetUeberschriftH1(einTextbausteineEintrag.BausteinId) + "</H1>");
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetUnterUeberschriftH2(einTextbausteineEintrag.BausteinId) + "</H2>");
-                html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
             case TextbausteinAnzeigen.H2Inhalt:
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetUnterUeberschriftH2(einTextbausteineEintrag.BausteinId) + "</H2>");
-                html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
 
             case TextbausteinAnzeigen.H1H2TestInhalt:
                 html.Append("<H1>" + einTextbausteineEintrag.PrefixH1 + GetUeberschriftH1(einTextbausteineEintrag.BausteinId) + "</H1>");
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetUnterUeberschriftH2(einTextbausteineEintrag.BausteinId) + "</H2>");
                 html.Append("<H2>" + einTextbausteineEintrag.PrefixH2 + GetTest(einTextbausteineEintrag.BausteinId) + "</H2>");
-                html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
                 break;
             default:
                 throw new NotImplementedException(nameof(einTextbausteineEintrag.WasAnzeigen));
         }
 
+        html.Append(GetInhalt(einTextbausteineEintrag.BausteinId));
         return html.ToString();
     }
     public string GetAlleHtmlTextbaustein(ListeTextbausteinEintrag[] alletextbausteinEintraege)
     {
         var html = new StringBuilder();
-
         foreach (var einTextbausteineEintrag in alletextbausteinEintraege) html.Append(GetEinHtmlTextbaustein(einTextbausteineEintrag));
-
         return html.ToString();
     }
 }
