@@ -24,7 +24,7 @@ public class TestListeTextbausteinInhalt
         var json = new ListeTextbausteine(pfad);
         Assert.Equal(kommentar, json.GetKommentar(id));
     }
-    
+
     [Theory]
     [InlineData("-", "json1//inhalt.json", 0)]
     [InlineData("-", "json2//inhalt.json", 1)]
@@ -33,7 +33,7 @@ public class TestListeTextbausteinInhalt
         var json = new ListeTextbausteine(pfad);
         Assert.Equal(tests, json.GetTest(id));
     }
-    
+
     [Theory]
     [InlineData(0, "json1//inhalt.json", 0)]
     [InlineData(0, "json2//inhalt.json", 1)]

@@ -2,17 +2,15 @@
 
 namespace LibTextbausteine;
 
-
 public class ListeTextbausteine
 {
-    public RootobjectListeTextbausteine Rootobject { get; set; }
+    public RootobjectListeTextbausteine? Rootobject { get; set; }
     public bool JsonDateiOk { get; set; }
-
-    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-    public ListeTextbausteine(string pfad)
+    public ListeTextbausteine(string? pfad)
     {
         Rootobject = new RootobjectListeTextbausteine();
+
+        if (Rootobject is null) { return; }
 
         if (File.Exists(pfad))
         {
@@ -23,18 +21,17 @@ public class ListeTextbausteine
             }
             catch (Exception e)
             {
-                Log.Debug(e);
+                Console.WriteLine(e);
             }
         }
-        else Log.Debug("json Datei fehlt:" + pfad);
+        else Console.WriteLine("json Datei fehlt:" + pfad);
     }
 
     public bool InhaltOk() => JsonDateiOk;
-    public int AnzahlEintraege() => Rootobject.ListeTextbausteineEintrag.Length;
-    public ListeTextbausteinEintrag GetTextbaustein(int id) => id <= AnzahlEintraege() ? Rootobject.ListeTextbausteineEintrag[id] : new ListeTextbausteinEintrag();
-    public int GetVorbereitungId(int id) => id <= AnzahlEintraege() ? Rootobject.ListeTextbausteineEintrag[id].VorbereitungId : 0;
-    public string GetTest(int id) => id <= AnzahlEintraege() ? Rootobject.ListeTextbausteineEintrag[id].Test : "-";
-    public string GetKommentar(int id) => id <= AnzahlEintraege() ? Rootobject.ListeTextbausteineEintrag[id].Kommentar : "-";
-
-    public ListeTextbausteinEintrag[] GetAlleTextbaustein() => Rootobject.ListeTextbausteineEintrag;
+    public int AnzahlEintraege() => Rootobject!.ListeTextbausteineEintrag!.Length;
+    public ListeTextbausteinEintrag GetTextbaustein(int id) => id <= AnzahlEintraege() ? Rootobject?.ListeTextbausteineEintrag?[id]! : new ListeTextbausteinEintrag();
+    public int GetVorbereitungId(int id) => id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].VorbereitungId : 0;
+    public string GetTest(int id) => id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].Test! : "-";
+    public string GetKommentar(int id) => id <= AnzahlEintraege() ? Rootobject!.ListeTextbausteineEintrag![id].Kommentar! : "-";
+    public ListeTextbausteinEintrag[] GetAlleTextbaustein() => Rootobject!.ListeTextbausteineEintrag!;
 }

@@ -11,16 +11,16 @@ public enum TextbausteinAnzeigen
 
 public class RootobjectListeTextbausteine
 {
-    public ListeTextbausteinEintrag[] ListeTextbausteineEintrag { get; set; }
+    public ListeTextbausteinEintrag[]? ListeTextbausteineEintrag { get; set; }
 }
 
 public class ListeTextbausteinEintrag
 {
     public int BausteinId { get; set; }
-    public string PrefixH1 { get; set; }
-    public string PrefixH2 { get; set; }
+    public string? PrefixH1 { get; set; }
+    public string? PrefixH2 { get; set; }
     public int VorbereitungId { get; set; }
-    public string Test { get; set; }
-    public string Kommentar { get; set; }
+    public string? Test { get; set; }
+    public string? Kommentar { get; set; }
     public TextbausteinAnzeigen WasAnzeigen { get; set; }
 }

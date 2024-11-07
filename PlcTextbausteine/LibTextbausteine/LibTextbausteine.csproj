@@ -1,10 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>Kurt Linder</Authors>
@@ -12,7 +11,7 @@
     <Description>Bibliothek zum lesen der Textbausteine</Description>
 
     <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcTextbausteine</RepositoryUrl>
-    <Copyright>Copyright © 2022 Kurt Linder</Copyright>
+    <Copyright>Copyright © 2024 Kurt Linder</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReleaseNotes>Minor changes</PackageReleaseNotes>
@@ -22,15 +21,15 @@
     <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcTextbausteine</PackageProjectUrl>
     <PackageTags>LibTextbausteine</PackageTags>
     <PackageId>LbsFeldkirch.LibTextbausteine</PackageId>
-    <AssemblyVersion>1.0.0.6</AssemblyVersion>
-    <FileVersion>1.0.0.6</FileVersion>
-    <Version>1.0.0.6</Version>
+    <AssemblyVersion>1.0.0.7</AssemblyVersion>
+    <FileVersion>1.0.0.7</FileVersion>
+    <Version>1.0.0.7</Version>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
@@ -38,12 +37,4 @@
     <None Include="LICENSE" Pack="true" PackagePath="" />
     <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-
 </Project>

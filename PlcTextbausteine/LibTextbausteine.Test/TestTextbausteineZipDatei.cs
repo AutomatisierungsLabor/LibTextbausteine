@@ -20,7 +20,7 @@ public class TestTextbausteineZipDateiOffnen
     [InlineData(StatusZipDatei.JsonDateiLeer, "zip1//json.zip")]
     [InlineData(StatusZipDatei.JsonDateiOk, "zip10//json.zip")]
     [InlineData(StatusZipDatei.JsonDateiOk, "zip11//json.zip")]
-    
+
     public void TestsKonstruktorStatus(StatusZipDatei status, string pfad)
     {
         var textBaustein = new Textbausteine(pfad);
@@ -31,7 +31,7 @@ public class TestTextbausteineZipDateiOffnen
     [Theory]
     [InlineData(1, "zip10//json.zip")]
     [InlineData(79, "zip11//json.zip")]
-    
+
     public void TestsKonstruktorAnzahlDatensaetzte(int anzahl, string pfad)
     {
         var textBaustein = new Textbausteine(pfad);
